@@ -1,0 +1,69 @@
+.root {
+  font-size: 1.2rem;
+  background-color: beige;
+  font-family: "American Typewriter", serif;
+}
+
+
+@keyframes fade {
+  0% {
+    transform: translateY(100%);
+  }
+}
+
+.loader-animation-fade-in {
+  animation: fade 4s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1.8rem;
+  font-family: "AntoniaH1-Light", Helvetica, Arial, sans-serif;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: #938181;
+  background-size: cover;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.page {
+  display: grid;
+  min-height: 100vh;
+}
+
+.page__text {
+  margin: auto;
+}
+
+.text {
+  position: relative;
+  font-size: clamp(3rem, 5vw, 5rem);
+}
+
+.text::before {
+  font-size: clamp(3rem, 5vw, 5rem);
+  animation-name: anim;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  color: red;
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 0;
+  overflow: hidden;
+  content: attr(data-text);
+}
+
+@keyframes anim {
+  50%, 80% {
+    width: 100%;
+  }
+}
